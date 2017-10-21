@@ -35,5 +35,7 @@ namespace Loja.Mvc.Areas.Vendas.Models
         public List<SelectListItem> Categorias { get; set; }
 
         public HttpPostedFileBase Imagem { get; set; }
+        [Display(Name="Em leilão")]
+        public bool EmLeilao { get; set; }
     }
 }
