@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Loja.Dominio;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -28,14 +30,20 @@
                         <ul class="dropdown-menu"> 
                             <li>@Html.ActionLink("Produtos", "Index", "Produtos", 
                                new { Area = "Vendas" }, new { })</li>
-                            <li>
-                                @Html.ActionLink("Leilão", "Index", "Leiloes",
-                               new { Area = "Vendas" }, new { })
-                        </li>
+                            
+                            <li class="divider"></li>
 
+                            @if (User.IsInRole(Perfil.Comprador.ToString()))
+                            {
+                                <li>
+                                    @Html.ActionLink("Leilão", "Index", "Leiloes",
+                               new { Area = "Vendas" }, new { })
+                                </li>
+                            }
                         </ul>
                     </li>
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
